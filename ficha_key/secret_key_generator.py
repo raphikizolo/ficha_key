@@ -29,11 +29,11 @@ class SecretKeyGenerator:
         with open(self.config.secret_key_file, 'rb') as f:
             return f.read().decode().strip() != ""
 
-    def try_generate(self):
+    def try_generate(self, ask=True):
         "Checks if there's an existing secret key. Generates one if one does not exist."
         if not self.secret_key_exists():
             self.logger.debug('Secret key does not exist. Generating one...')
-            self.generate(False)
+            self.generate(ask)
             self.logger.debug('Generating secret key successful.')
             
     def generate(self, ask=True):

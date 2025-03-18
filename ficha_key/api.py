@@ -21,8 +21,12 @@ class Api:
         Path(self.config.store_dir).mkdir(parents=True, exist_ok=True)
         # self.logger.info(f'Store directory created successfully.')
         
-    def add_key(self):
-        self.gen.generate()
+    def add_key(self, ask=True):
+        self.gen.generate(ask)
+
+    def try_add_key(self, ask=True):
+        self.gen.try_generate(ask)
+
 
     def get_ficha(self):
         return self.ficha
