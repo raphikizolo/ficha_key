@@ -5,8 +5,8 @@ import cryptography.exceptions
 from cryptography.fernet import Fernet
 import cryptography.fernet
 
-from app_config import AppConfig
-from logging_service import LoggingService
+from .app_config import AppConfig
+from .logging_service import LoggingService
 
 
 class Ficha:

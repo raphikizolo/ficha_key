@@ -4,7 +4,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 import sys
 
-from app_config import AppConfig
+from .app_config import AppConfig
 
 
 class LoggingService:

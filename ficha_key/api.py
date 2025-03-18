@@ -3,10 +3,10 @@
 
 from logging import INFO
 from pathlib import Path
-from app_config import AppConfig
-from ficha import Ficha
-from logging_service import LoggingService
-from secret_key_generator import SecretKeyGenerator
+from .app_config import AppConfig
+from .ficha import Ficha
+from .logging_service import LoggingService
+from .secret_key_generator import SecretKeyGenerator
 
 class Api:
     def __init__(self, store_dir=None, logging_level=INFO):

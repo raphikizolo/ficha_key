@@ -1,9 +1,10 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 
 setup(
     name="ficha-key",
-    version="1.0.1",
-    py_modules=["api", "app_config", "ficha", "logging_service", "secret_key_generator"],
+    version="2.0.0",
+    # py_modules=["api", "app_config", "ficha", "logging_service", "secret_key_generator"],
+    packages=find_packages(),
     # install_requires=["requests"],
     author="Raphael Mwasaru Mwangangi",
     author_email="raphaelmwasaru@gmail.com",

@@ -3,8 +3,8 @@ from pathlib import Path
 import uuid
 from cryptography.fernet import Fernet
 
-from app_config import AppConfig
-from logging_service import LoggingService
+from .app_config import AppConfig
+from .logging_service import LoggingService
 
 
 class SecretKeyGenerator:

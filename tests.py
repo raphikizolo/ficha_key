@@ -2,10 +2,8 @@ from datetime import datetime
 import json
 from logging import DEBUG
 import os
-import api
-from app_config import AppConfig
-
-
+import ficha_key.api
+from ficha_key.app_config import AppConfig
 
 # continue from here.
 
@@ -45,7 +43,7 @@ def ensure_decrypted(key, value, encrypted_data_file, logger):
 
 if __name__ == "__main__":
     test_store_dir = os.path.join(os.curdir, 'test_store_dir')
-    encr_svc = api.get_api(test_store_dir, DEBUG)
+    encr_svc = ficha_key.api.get_api(test_store_dir, DEBUG)
     logger = encr_svc.logging_svc.get_logger(f'Tests-of-time-[{get_timestamp()}]')
     logger.debug('Tests starting...')
     old_key = get_current_key(encr_svc.config)
