@@ -26,7 +26,14 @@ class Ficha:
         data = json.loads(decrypted_data) if decrypted_data else {}
         data[json_key] = json_value
         json_data = json.dumps(data).encode()
-        encrypted = cipher.encrypt(json_data)
+        # encrypted = cipher.encrypt(json_data)
+        # with open(encrypted_data_file, 'wb') as f:
+            # f.write(encrypted)
+        self.encrypt_and_write(json_data, encrypted_data_file)
+
+    def encrypt_and_write(self, unencrypted_data, encrypted_data_file):
+        cipher = self.get_cipher()
+        encrypted = cipher.encrypt(unencrypted_data)
         with open(encrypted_data_file, 'wb') as f:
             f.write(encrypted)
 
@@ -58,7 +65,13 @@ class Ficha:
         os.remove(old_key_file)
         self.logger.debug('Removed old secret key file.')
 
-    
     def get_stored_token(self, key, encrypted_tokens_file):
         m = self.decryptd(encrypted_tokens_file)
         return m[key] if key in m else None
+    
+    def delete_stored_token(self, key, encrypted_tokens_file):
+        m = self.decryptd(encrypted_tokens_file)
+        if key in m:
+            del m[key]
+            data = json.dumps(m)
+            self.encrypt_and_write(data, encrypted_tokens_file)
