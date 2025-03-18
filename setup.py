@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="ficha-key",
-    version="1.0.0",
+    version="1.0.1",
     py_modules=["api", "app_config", "ficha", "logging_service", "secret_key_generator"],
     # install_requires=["requests"],
     author="Raphael Mwasaru Mwangangi",
